@@ -25,6 +25,12 @@ android {
         enabled = true
         enabledForTests = true
     }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -65,4 +71,11 @@ dependencies {
 
     // Hamcrest
     testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
+
+    // AndroidX Test Core library
+    testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
+    testImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
+
+    // Roboelectric
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
 }
