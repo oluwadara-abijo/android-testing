@@ -16,6 +16,7 @@
 package com.example.android.architecture.blueprints.todoapp.tasks
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -26,6 +27,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.android.architecture.blueprints.todoapp.R
+import com.example.android.architecture.blueprints.todoapp.taskdetail.TaskDetailFragment
 import com.google.android.material.navigation.NavigationView
 
 /**
@@ -55,6 +57,7 @@ class TasksActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return findNavController(R.id.nav_host_fragment).navigateUp(appBarConfiguration)
             || super.onSupportNavigateUp()
+        openTaskDetail()
     }
 
     private fun setupNavigationDrawer() {
@@ -62,6 +65,11 @@ class TasksActivity : AppCompatActivity() {
             .apply {
                 setStatusBarBackground(R.color.colorPrimaryDark)
             }
+    }
+
+    private fun openTaskDetail () {
+        val intent = Intent(this, TaskDetailFragment::class.java)
+        startActivity(intent)
     }
 }
 
